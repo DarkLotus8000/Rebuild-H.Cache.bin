@@ -13,7 +13,6 @@ from dataclasses import dataclass
 from pathlib import Path
 
 HCACHE_NAME = "H.Cache.bin!E_---------------------w"
-UNMANAGED_NAME = "UNMANAGED"
 BCACHE_RE = re.compile(r"^(B\.Cache\..+?\.bin)!E_([A-Za-z0-9+\-]{22})$", re.IGNORECASE)
 
 @dataclass(frozen=True)
@@ -183,7 +182,7 @@ def common_output_directory(manifests: list[Manifest]) -> Path:
 def write_outputs(output_directory: Path, hcache: bytes, force: bool) -> tuple[Path, Path]:
     output_directory.mkdir(parents=True, exist_ok=True)
     hcache_path = output_directory / HCACHE_NAME
-    unmanaged_path = output_directory / UNMANAGED_NAME
+    unmanaged_path = output_directory / "UNMANAGED"
     if hcache_path.exists() and not force:
         raise RebuildError(
             f"H.Cache already exists:\n  {hcache_path}\n\n"

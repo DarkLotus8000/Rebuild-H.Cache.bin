@@ -9,15 +9,11 @@ H.Cache.bin!E_---------------------w
 UNMANAGED
 ```
 
-## Recommended usage
+## Usage
 
-Select **all active `B.Cache.*.bin!E_<hash>` files for one Warframe build** and drag them together onto:
+Select **all active `B.Cache.*.bin!E_<hash>` files for one Warframe build** and drag them together directly onto `rebuild_hcache.py`.
 
-```text
-rebuild_hcache_drag_drop.bat
-```
-
-Do **not** drag only `B.Cache.Windows.bin` if you want a historically complete H.Cache. `H.Cache.bin` also references the active DirectX and language manifests, so include the active `B.Cache.*` file for every logical manifest used by that build.
+Do **not** drag only `B.Cache.Windows.bin` if you want a complete H.Cache. `H.Cache.bin` also references the active DirectX and language manifests, so include the active `B.Cache.*` file for every logical manifest used by that build.
 
 For example, a build may include:
 
@@ -30,15 +26,19 @@ B.Cache.Windows_de.bin!E_<hash>
 ...
 ```
 
+The generated `H.Cache.bin!E_---------------------w` and zero-byte `UNMANAGED` file are written next to the dragged manifests.
+
+Dragging files directly onto a `.py` file requires `.py` files to be associated with Python on Windows.
+
 ## Command-line usage
 
-You can also run the Python script directly:
+You can also run the script normally:
 
 ```bat
 python rebuild_hcache.py B.Cache.Windows.bin!E_HASH B.Cache.Dx11.bin!E_HASH ...
 ```
 
-Or give it one directory containing a clean, unambiguous set of active manifests:
+Or give it one directory containing the manifests:
 
 ```bat
 python rebuild_hcache.py "D:\Patch\OpenWF\Content\0"
@@ -52,13 +52,7 @@ python rebuild_hcache.py <files...> --output "D:\Output"
 
 ## Existing H.Cache files
 
-Existing H.Cache overrides are protected by default. The tool refuses to replace:
-
-```text
-H.Cache.bin!E_---------------------w
-```
-
-Use `--force` only when you intentionally want to rebuild an existing override.
+Existing H.Cache overrides are protected by default. The tool refuses to replace `H.Cache.bin!E_---------------------w`. Use `--force` only when you intentionally want to rebuild an existing override.
 
 ## UNMANAGED
 
