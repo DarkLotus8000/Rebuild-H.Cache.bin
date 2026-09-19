@@ -3,6 +3,7 @@
 ## Disclaimer
 
 Check first if your wanted H.Cache.bin is available at: https://openwf.io/supplementals/static%20data/
+
 Known issues:
 
 - Creating a H.Cache.bin that lacks some B.Cache files (e.g. Update Patch didn't have DirectX changes and therefore not being shipped) can create a broken H.Cache.bin file as a result
