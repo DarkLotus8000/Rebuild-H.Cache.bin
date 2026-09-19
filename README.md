@@ -1,5 +1,15 @@
 # OpenWF H.Cache Rebuilder
 
+## Disclaimer
+
+Check first if your wanted H.Cache.bin is available at: https://openwf.io/supplementals/static%20data/
+Known issues:
+
+- Creating a H.Cache.bin that lacks some B.Cache files (e.g. Update Patch didn't have DirectX changes and therefore not being shipped) can create a broken H.Cache.bin file as a result
+- Accurate Oodle compression not implemented yet
+
+-----------------------------------------
+
 Reconstruct the missing OpenWF H.Cache override for a historical Warframe build from its active `B.Cache.*.bin!E_<hash>` manifests.
 
 The tool creates these files in the same folder as the selected manifests:
