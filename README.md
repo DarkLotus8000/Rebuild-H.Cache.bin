@@ -1,4 +1,4 @@
-# OpenWF H.Cache Rebuilder
+# OpenWF H.Cache.bin Rebuilder
 
 ## Disclaimer
 
@@ -11,7 +11,7 @@ Known issues:
 
 -----------------------------------------
 
-Reconstruct the missing OpenWF H.Cache override for a historical Warframe build from its active `B.Cache.*.bin!E_<hash>` manifests.
+Reconstruct the missing OpenWF H.Cache.bin override for a historical Warframe build from its active `B.Cache.*.bin!E_<hash>` manifests.
 
 The tool creates these files in the same folder as the selected manifests:
 
@@ -24,7 +24,7 @@ UNMANAGED
 
 Select **all active `B.Cache.*.bin!E_<hash>` files for one Warframe build** and drag them together directly onto `rebuild_hcache.py`.
 
-Do **not** drag only `B.Cache.Windows.bin` if you want a complete H.Cache. `H.Cache.bin` also references the active DirectX and language manifests, so include the active `B.Cache.*` file for every logical manifest used by that build.
+Do **not** drag only `B.Cache.Windows.bin` if you want a complete H.Cache.bin. `H.Cache.bin` also references the active DirectX and language manifests, so include the active `B.Cache.*` file for every logical manifest used by that build.
 
 For example, a build may include:
 
@@ -61,13 +61,13 @@ To write the generated files somewhere else:
 python rebuild_hcache.py <files...> --output "D:\Output"
 ```
 
-## Existing H.Cache files
+## Existing H.Cache.bin files
 
-Existing H.Cache overrides are protected by default. The tool refuses to replace `H.Cache.bin!E_---------------------w`. Use `--force` only when you intentionally want to rebuild an existing override.
+Existing H.Cache.bin overrides are protected by default. The tool refuses to replace `H.Cache.bin!E_---------------------w`. Use `--force` only when you intentionally want to rebuild an existing override.
 
 ## UNMANAGED
 
-`UNMANAGED` is a zero-byte marker that tells the OpenWF Bootstrapper to trust the supplied H.Cache instead of reconstructing or replacing it from the installation's `H.Misc` cache.
+`UNMANAGED` is a zero-byte marker that tells the OpenWF Bootstrapper to trust the supplied H.Cache.bin instead of reconstructing or replacing it from the installation's `H.Misc` cache.
 
 ## Requirements
 
